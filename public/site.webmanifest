@@ -1,0 +1,26 @@
+{
+  "name": "SearchForLasVegasHomes.com - Dr. Jan Duffy",
+  "short_name": "LasVegasHomes",
+  "description": "Las Vegas's premier real estate market research and data analysis platform - 1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#3B82F6",
+  "icons": [
+    {
+      "src": "/icon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ]
+}

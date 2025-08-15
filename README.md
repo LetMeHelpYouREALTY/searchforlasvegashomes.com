@@ -6,6 +6,8 @@ A Next.js 15.0 website positioning Dr. Jan Duffy as Las Vegas's premier real est
 
 This website showcases Dr. Jan Duffy's unique positioning as "Las Vegas's Only Research-Driven REALTOR®" by emphasizing her:
 
+**Office Location:** 1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)
+
 - **Academic Credentials**: Doctorate from Columbia Pacific University
 - **Professional Expertise**: REALTOR® License S.0197614.LLC with Berkshire Hathaway HomeServices
 - **Research Specializations**: 15+ data sources for comprehensive market analysis

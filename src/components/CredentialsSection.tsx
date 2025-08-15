@@ -1,150 +1,131 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { 
-  AcademicCapIcon, 
-  ShieldCheckIcon, 
-  BookOpenIcon,
-  ChartBarIcon,
-  BuildingOfficeIcon,
-  UserGroupIcon
-} from '@heroicons/react/24/outline';
-
-const credentials = [
-  {
-    icon: AcademicCapIcon,
-    title: "Doctorate",
-    subtitle: "Columbia Pacific University",
-    description: "Advanced research methodology and data analysis expertise"
-  },
-  {
-    icon: ShieldCheckIcon,
-    title: "REALTOR® License",
-    subtitle: "S.0197614.LLC",
-    description: "Licensed real estate professional in Nevada"
-  },
-  {
-    icon: BuildingOfficeIcon,
-    title: "Brokerage",
-    subtitle: "Berkshire Hathaway HomeServices",
-    description: "Nevada Properties - Premier real estate network"
-  },
-  {
-    icon: ChartBarIcon,
-    title: "Specialization",
-    subtitle: "Market Analysis & Strategic Pricing",
-    description: "Data-driven property valuation and market insights"
-  },
-  {
-    icon: BookOpenIcon,
-    title: "Best-Selling Author",
-    subtitle: "Real Estate Market Trends",
-    description: "Published expert on Las Vegas market forecasting"
-  },
-  {
-    icon: UserGroupIcon,
-    title: "Research Focus",
-    subtitle: "Investment & Market Trends",
-    description: "15+ data sources for comprehensive analysis"
-  }
-];
+import { AcademicCapIcon, ChartBarIcon, ShieldCheckIcon, ServerIcon, DocumentTextIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import { AuthorityContent } from '../data/authorityContent';
 
 export default function CredentialsSection() {
+  const credentials = [
+    {
+      icon: AcademicCapIcon,
+      title: "Doctorate Degree",
+      description: "Columbia Pacific University",
+      color: "blue"
+    },
+    {
+      icon: ShieldCheckIcon,
+      title: "REALTOR® License",
+      description: "S.0197614.LLC",
+      color: "green"
+    },
+    {
+      icon: ServerIcon,
+      title: "Data Access",
+      description: "MLS + Public + Private",
+      color: "purple"
+    },
+    {
+      icon: DocumentTextIcon,
+      title: "Published Author",
+      description: "Market forecasts since 2010",
+      color: "orange"
+    }
+  ];
+
   return (
     <section className="section-padding bg-white">
       <div className="container-max">
-        <motion.div 
-          className="text-center mb-16"
-          initial={{ opacity: 0, y: 30 }}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
+          className="max-w-6xl mx-auto"
         >
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
-            Unmatched Credentials
-          </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Dr. Jan Duffy combines academic excellence with real estate expertise, 
-            making her the only research-driven REALTOR® in Las Vegas.
-          </p>
-        </motion.div>
-
-        <div className="grid-responsive">
-          {credentials.map((credential, index) => (
-            <motion.div
-              key={index}
-              className="col-span-full sm:col-span-6 lg:col-span-4"
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: index * 0.1 }}
-            >
-              <div className="bg-gray-50 rounded-xl p-8 h-full border border-gray-100 hover:shadow-lg transition-all duration-300 hover:border-blue-200">
-                <div className="flex items-start space-x-4">
-                  <div className="flex-shrink-0">
-                    <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
-                      <credential.icon className="w-6 h-6 text-blue-600" />
-                    </div>
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <h3 className="text-lg font-semibold text-gray-900 mb-1">
-                      {credential.title}
-                    </h3>
-                    <p className="text-blue-600 font-medium mb-2">
-                      {credential.subtitle}
-                    </p>
-                    <p className="text-gray-600 text-sm leading-relaxed">
-                      {credential.description}
-                    </p>
-                  </div>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+              Academic & Professional Credentials
+            </h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Dr. Jan Duffy combines advanced academic training with extensive real estate expertise 
+              to deliver unparalleled market insights and analysis.
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
+            {credentials.map((credential, index) => (
+              <motion.div
+                key={credential.title}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: index * 0.1 }}
+                viewport={{ once: true }}
+                className="text-center"
+              >
+                <div className={`bg-${credential.color}-100 text-${credential.color}-600 p-4 rounded-full w-fit mx-auto mb-4`}>
+                  <credential.icon className="w-6 h-6" />
                 </div>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-
-        {/* Unique Value Proposition */}
-        <motion.div 
-          className="mt-20 bg-gradient-to-r from-blue-50 to-indigo-50 rounded-2xl p-8 lg:p-12 border border-blue-100"
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-        >
-          <div className="grid-responsive items-center">
-            <div className="col-span-full lg:col-span-7">
-              <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
-                Las Vegas&apos;s Only Research-Driven REALTOR®
-              </h3>
-              <p className="text-lg text-gray-700 mb-6 leading-relaxed">
-                While other agents rely on basic MLS data, Dr. Jan Duffy leverages proprietary 
-                market analysis combining 15+ data sources including economic indicators, demographic 
-                trends, and investment patterns to provide unparalleled market insights.
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{credential.title}</h3>
+                <p className="text-gray-600">{credential.description}</p>
+              </motion.div>
+            ))}
+          </div>
+          
+          <div className="bg-gradient-to-r from-blue-600 to-indigo-600 rounded-xl p-8 text-white mb-16">
+            <div className="text-center mb-8">
+              <h3 className="text-2xl font-bold mb-4">Unique Value Proposition</h3>
+              <p className="text-blue-100 max-w-3xl mx-auto">
+                Las Vegas&apos;s only research-driven REALTOR® combining doctorate-level methodology 
+                with exclusive market data access and proprietary algorithms.
               </p>
-              <div className="flex flex-wrap gap-4">
-                <div className="flex items-center gap-2 text-blue-600 font-medium">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span>Academic Research Background</span>
-                </div>
-                <div className="flex items-center gap-2 text-blue-600 font-medium">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span>Proprietary Data Analysis</span>
-                </div>
-                <div className="flex items-center gap-2 text-blue-600 font-medium">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full"></div>
-                  <span>Investment ROI Forecasting</span>
-                </div>
+            </div>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <h4 className="font-semibold mb-4">What Makes Dr. Jan Different:</h4>
+                <ul className="space-y-2 text-blue-100">
+                  {AuthorityContent.differentiators.map((differentiator, index) => (
+                    <li key={index} className="flex items-start space-x-2">
+                      <div className="w-2 h-2 bg-blue-200 rounded-full mt-2 flex-shrink-0"></div>
+                      <span className="text-sm">{differentiator}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+              
+              <div>
+                <h4 className="font-semibold mb-4">Trust & Credibility:</h4>
+                <ul className="space-y-2 text-blue-100">
+                  <li className="flex items-start space-x-2">
+                    <div className="w-2 h-2 bg-blue-200 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-sm">{AuthorityContent.trustSignals.berkshireHathaway}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <div className="w-2 h-2 bg-blue-200 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-sm">{AuthorityContent.trustSignals.dataAccess}</span>
+                  </li>
+                  <li className="flex items-start space-x-2">
+                    <div className="w-2 h-2 bg-blue-200 rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-sm">{AuthorityContent.trustSignals.trackRecord}</span>
+                  </li>
+                </ul>
               </div>
             </div>
-            <div className="col-span-full lg:col-span-5 flex justify-center lg:justify-end">
-              <div className="bg-white rounded-xl p-6 shadow-lg border border-blue-200">
-                <div className="text-center">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">15+</div>
-                  <div className="text-gray-600 font-medium">Data Sources</div>
-                  <div className="text-sm text-gray-500 mt-2">Combined for Market Analysis</div>
-                </div>
-              </div>
-            </div>
+          </div>
+          
+          <div className="text-center">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center space-x-3 bg-gray-100 rounded-full px-6 py-3"
+            >
+              <GlobeAltIcon className="w-5 h-5 text-blue-600" />
+              <span className="text-gray-700 font-medium">
+                Trusted by local media and cited in market reports since 2010
+              </span>
+            </motion.div>
           </div>
         </motion.div>
       </div>

@@ -29,9 +29,9 @@ const contactMethods = [
   {
     icon: MapPinIcon,
     title: "Office",
-    value: "Berkshire Hathaway HomeServices",
-    description: "Nevada Properties, Las Vegas",
-    action: "#",
+    value: "1980 Festival Plaza Drive, Suite 300",
+    description: "Las Vegas, NV 89135 (Downtown Summerlin)",
+    action: "https://maps.google.com/?q=1980+Festival+Plaza+Drive+Suite+300+Las+Vegas+NV+89135",
     color: "purple"
   },
   {
@@ -183,6 +183,9 @@ export default function ContactSection() {
           <p className="text-gray-400 text-sm">
             <strong>Dr. Jan Duffy</strong> • REALTOR® License S.0197614.LLC • 
             Berkshire Hathaway HomeServices Nevada Properties
+          </p>
+          <p className="text-gray-400 text-sm mt-2">
+            1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)
           </p>
           <p className="text-gray-500 text-xs mt-2">
             &ldquo;Where Data Meets Real Estate&rdquo; - Las Vegas&apos;s Premier Research-Driven REALTOR®
