@@ -63,7 +63,7 @@ export async function GET() {
   });
 }
 
-function validateCoreWebVitals(vitals: any) {
+function validateCoreWebVitals(vitals: Record<string, number>) {
   const errors: string[] = [];
   const required = ['LCP', 'INP', 'CLS', 'TTFB'];
   
@@ -79,7 +79,7 @@ function validateCoreWebVitals(vitals: any) {
   };
 }
 
-function checkCompliance(vitals: any) {
+function checkCompliance(vitals: Record<string, number>) {
   const compliance = {
     LCP: vitals.LCP <= GOOGLE_2025_THRESHOLDS.LCP ? 'good' : 'needs-improvement',
     INP: vitals.INP <= GOOGLE_2025_THRESHOLDS.INP ? 'good' : 'needs-improvement',
@@ -96,12 +96,12 @@ function checkCompliance(vitals: any) {
   };
 }
 
-function calculateScore(compliance: any) {
+function calculateScore(compliance: Record<string, string>) {
   const goodCount = Object.values(compliance).filter(status => status === 'good').length;
   return Math.round((goodCount / 4) * 100);
 }
 
-function generateRecommendations(vitals: any) {
+function generateRecommendations(vitals: Record<string, number>) {
   const recommendations = [];
   
   if (vitals.LCP > GOOGLE_2025_THRESHOLDS.LCP) {

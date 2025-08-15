@@ -36,7 +36,7 @@ interface SEOProps {
   businessHours?: string;
   // Schema markup
   schemaType?: 'Article' | 'Product' | 'LocalBusiness' | 'RealEstateAgent' | 'WebPage';
-  schemaData?: Record<string, any>;
+  schemaData?: Record<string, string | number | boolean | object>;
 }
 
 export default function SEO({
@@ -95,7 +95,7 @@ export default function SEO({
   
   // Generate schema markup
   const generateSchema = () => {
-    const baseSchema = {
+    const baseSchema: Record<string, unknown> = {
       '@context': 'https://schema.org',
       '@type': schemaType,
       '@id': currentUrl,
@@ -176,25 +176,23 @@ export default function SEO({
 
     // Add property-specific schema if available
     if (propertyType && propertyAddress) {
-      baseSchema.mainEntity = {
-        ...baseSchema.mainEntity,
-        'hasOccupation': {
-          '@type': 'Occupation',
-          'name': 'Real Estate Market Researcher',
-          'occupationalCategory': '13-1161.00',
-          'responsibilities': 'Analyzing Las Vegas real estate trends, forecasting market movements, providing data-driven insights',
-        },
-        'knowsAbout': [
-          'Real Estate Market Analysis',
-          'Property Valuation Models',
-          'Investment ROI Calculation',
-          'Market Trend Forecasting',
-          'Comparative Market Analysis',
-          'Real Estate Data Analytics',
-          'Las Vegas Housing Market',
-          'California to Nevada Migration Patterns',
-        ],
+      const mainEntity = baseSchema.mainEntity as Record<string, unknown>;
+      mainEntity.hasOccupation = {
+        '@type': 'Occupation',
+        'name': 'Real Estate Market Researcher',
+        'occupationalCategory': '13-1161.00',
+        'responsibilities': 'Analyzing Las Vegas real estate trends, forecasting market movements, providing data-driven insights',
       };
+      mainEntity.knowsAbout = [
+        'Real Estate Market Analysis',
+        'Property Valuation Models',
+        'Investment ROI Calculation',
+        'Market Trend Forecasting',
+        'Comparative Market Analysis',
+        'Real Estate Data Analytics',
+        'Las Vegas Housing Market',
+        'California to Nevada Migration Patterns',
+      ];
     }
 
     return baseSchema;

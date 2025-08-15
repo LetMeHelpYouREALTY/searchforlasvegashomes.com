@@ -6,7 +6,7 @@ const nextConfig: NextConfig = {
     // Enable latest optimizations
     optimizePackageImports: ['@heroicons/react', 'framer-motion'],
     // INP optimization
-    optimizeCss: true,
+    // optimizeCss: true, // Disabled due to critters module issue
   },
   
   images: {

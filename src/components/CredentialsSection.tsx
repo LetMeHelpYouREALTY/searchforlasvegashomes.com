@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { AcademicCapIcon, ChartBarIcon, ShieldCheckIcon, ServerIcon, DocumentTextIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
+import { AcademicCapIcon, ShieldCheckIcon, ServerIcon, DocumentTextIcon, GlobeAltIcon } from '@heroicons/react/24/outline';
 import { AuthorityContent } from '../data/authorityContent';
 
 export default function CredentialsSection() {

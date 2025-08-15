@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { ChatBubbleLeftRightIcon, StarIcon, ShieldCheckIcon, ChartBarIcon } from '@heroicons/react/24/outline';
-import { AuthorityContent } from '@/data/authorityContent';
+
 
 export default function TestimonialsSection() {
   const testimonials = [

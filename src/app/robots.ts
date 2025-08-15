@@ -2,7 +2,6 @@ import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
   const baseUrl = 'https://searchforlasvegashomes.com';
-  const businessAddress = '1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)';
   
   return {
     rules: [

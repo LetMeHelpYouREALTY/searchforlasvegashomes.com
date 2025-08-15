@@ -11,29 +11,29 @@ const SITE_CONFIG = {
 // Page priorities and change frequencies for real estate SEO
 const PAGE_CONFIG = {
   // High priority pages (core business pages)
-  home: { priority: 1.0, changefreq: 'daily' },
-  about: { priority: 0.9, changefreq: 'monthly' },
-  search: { priority: 0.9, changefreq: 'daily' },
+  home: { priority: 1.0, changefreq: 'daily' as const },
+  about: { priority: 0.9, changefreq: 'monthly' as const },
+  search: { priority: 0.9, changefreq: 'daily' as const },
   
   // Market research pages (high value content)
-  marketReports: { priority: 0.9, changefreq: 'weekly' },
-  neighborhoodAnalysis: { priority: 0.8, changefreq: 'weekly' },
-  investmentCalculator: { priority: 0.8, changefreq: 'monthly' },
-  priceTrends: { priority: 0.8, changefreq: 'daily' },
-  marketForecast: { priority: 0.8, changefreq: 'weekly' },
+  marketReports: { priority: 0.9, changefreq: 'weekly' as const },
+  neighborhoodAnalysis: { priority: 0.8, changefreq: 'weekly' as const },
+  investmentCalculator: { priority: 0.8, changefreq: 'monthly' as const },
+  priceTrends: { priority: 0.8, changefreq: 'daily' as const },
+  marketForecast: { priority: 0.8, changefreq: 'weekly' as const },
   
   // Data tools pages (interactive content)
-  homeValueAnalyzer: { priority: 0.8, changefreq: 'monthly' },
-  californiaComparison: { priority: 0.7, changefreq: 'monthly' },
-  schoolRatingsMap: { priority: 0.7, changefreq: 'monthly' },
-  appreciationTracker: { priority: 0.7, changefreq: 'monthly' },
+  homeValueAnalyzer: { priority: 0.8, changefreq: 'monthly' as const },
+  californiaComparison: { priority: 0.7, changefreq: 'monthly' as const },
+  schoolRatingsMap: { priority: 0.7, changefreq: 'monthly' as const },
+  appreciationTracker: { priority: 0.7, changefreq: 'monthly' as const },
   
   // Blog and content pages
-  blog: { priority: 0.6, changefreq: 'weekly' },
-  weeklyMarketInsights: { priority: 0.7, changefreq: 'weekly' },
+  blog: { priority: 0.6, changefreq: 'weekly' as const },
+  weeklyMarketInsights: { priority: 0.7, changefreq: 'weekly' as const },
   
   // API endpoints (for search engines)
-  api: { priority: 0.3, changefreq: 'monthly' },
+  api: { priority: 0.3, changefreq: 'monthly' as const },
 };
 
 // Generate main sitemap

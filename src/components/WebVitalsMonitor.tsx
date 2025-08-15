@@ -26,9 +26,11 @@ export default function WebVitalsMonitor() {
   return null; // This component doesn't render anything
 }
 
-function sendToAnalytics(metric: any) {
+function sendToAnalytics(metric: { name: string; value: number; id: string }) {
   // Send to Google Analytics 4
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   if (typeof window !== 'undefined' && (window as any).gtag) {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     (window as any).gtag('event', metric.name, {
       event_category: 'Web Vitals',
       event_label: metric.id,
@@ -67,7 +69,7 @@ function getRating(metricName: string, value: number): 'good' | 'needs-improveme
   return 'poor';
 }
 
-async function sendToCoreWebVitalsAPI(metric: any) {
+async function sendToCoreWebVitalsAPI(metric: { name: string; value: number }) {
   try {
     // Collect all available metrics
     const vitals = {
@@ -93,9 +95,9 @@ async function sendToCoreWebVitalsAPI(metric: any) {
 // Real-time monitoring hook for components
 export function useWebVitals() {
   useEffect(() => {
-    let vitalsData: any = {};
+    let vitalsData: Record<string, number> = {};
     
-    const collectVitals = (metric: any) => {
+    const collectVitals = (metric: { name: string; value: number }) => {
       vitalsData[metric.name] = metric.value;
       
       // Send batch update every 5 seconds
@@ -122,7 +124,7 @@ export function useWebVitals() {
   }, []);
 }
 
-async function sendBatchVitals(vitals: any) {
+async function sendBatchVitals(vitals: Record<string, number>) {
   try {
     await fetch('/api/core-web-vitals', {
       method: 'POST',
@@ -141,7 +143,7 @@ async function sendBatchVitals(vitals: any) {
 }
 
 // Performance monitoring utilities
-export function getPerformanceScore(vitals: any): number {
+export function getPerformanceScore(vitals: Record<string, number>): number {
   let score = 0;
   let total = 0;
 
@@ -167,7 +169,7 @@ export function getPerformanceScore(vitals: any): number {
   return total > 0 ? Math.round(score / total) : 0;
 }
 
-export function getPerformanceRecommendations(vitals: any): string[] {
+export function getPerformanceRecommendations(vitals: Record<string, number>): string[] {
   const recommendations: string[] = [];
 
   Object.entries(vitals).forEach(([name, value]) => {

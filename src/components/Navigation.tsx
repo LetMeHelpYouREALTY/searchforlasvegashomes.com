@@ -7,7 +7,6 @@ import {
   Bars3Icon, 
   XMarkIcon,
   ChevronDownIcon,
-  MagnifyingGlassIcon,
   ChartBarIcon,
   CalculatorIcon,
   MapIcon,

@@ -35,7 +35,7 @@ export async function POST(request: NextRequest) {
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Failed to track analytics event' },
       { status: 500 }
@@ -70,7 +70,7 @@ export async function GET() {
     };
 
     return NextResponse.json(analyticsInsights);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Failed to fetch analytics insights' },
       { status: 500 }
