@@ -34,7 +34,7 @@ const PAGE_CONFIG = {
   
   // API endpoints (for search engines)
   api: { priority: 0.3, changefreq: 'monthly' },
-};
+} as const;
 
 // Generate main sitemap
 export default function sitemap(): MetadataRoute.Sitemap {
