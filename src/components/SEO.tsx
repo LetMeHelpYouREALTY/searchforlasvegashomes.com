@@ -95,7 +95,7 @@ export default function SEO({
   
   // Generate schema markup
   const generateSchema = () => {
-    const baseSchema = {
+    const baseSchema: Record<string, any> = {
       '@context': 'https://schema.org',
       '@type': schemaType,
       '@id': currentUrl,
