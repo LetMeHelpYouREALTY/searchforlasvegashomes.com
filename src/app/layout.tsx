@@ -12,7 +12,7 @@ const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "SearchForLasVegasHomes.com | Dr. Jan Duffy - Premier Real Estate Market Researcher",
-  description: "Las Vegas's only research-driven REALTOR® combining doctorate-level methodology with proprietary market analysis. Get data-driven insights for buying, selling, and investing in Las Vegas real estate.",
+  description: "Las Vegas's only research-driven REALTOR® combining Ph.D. research methodology with proprietary market analysis. Get data-driven insights for buying, selling, and investing in Las Vegas real estate.",
   keywords: [
     "Las Vegas real estate",
     "real estate market research",
@@ -143,6 +143,10 @@ export default function RootLayout({
         <StructuredData />
         <Navigation />
         {children}
+        <footer className="border-t border-gray-200 bg-white py-6 text-center text-xs text-gray-500">
+          <p>&copy; {new Date().getFullYear()} SearchForLasVegasHomes.com · Dr. Jan Duffy, REALTOR®</p>
+          <p className="mt-1">Berkshire Hathaway HomeServices Nevada Properties since September 2008 · License S.0197614.LLC</p>
+        </footer>
         <Analytics />
         <SpeedInsights />
         <WebVitalsMonitor />

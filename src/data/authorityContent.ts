@@ -2,11 +2,11 @@ export const AuthorityContent = {
   hero: {
     headline: "Make Smarter Real Estate Decisions with Data",
     subheadline: "Dr. Jan Duffy: Las Vegas's Only Research-Driven REALTOR®",
-    proof: "15+ years analyzing Vegas market trends"
+    proof: "In real estate since 1983, analyzing Vegas market trends"
   },
   
   differentiators: [
-    "Doctorate-level research methodology",
+    "Ph.D. in Research methodology",
     "Published market forecasts since 2010",
     "Proprietary neighborhood scoring algorithm",
     "Access to exclusive pre-market data",
@@ -14,9 +14,9 @@ export const AuthorityContent = {
   ],
   
   trustSignals: {
-    berkshireHathaway: "Backed by Warren Buffett's real estate network",
+    berkshireHathaway: "Top 1% Las Vegas REALTOR®",
     dataAccess: "MLS + Public Records + Private databases",
-    trackRecord: "500+ successful transactions guided by data"
+    trackRecord: "500+ transactions guided by data"
   }
 };
 

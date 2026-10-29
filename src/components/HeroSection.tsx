@@ -31,7 +31,7 @@ export default function HeroSection() {
             className="inline-flex items-center space-x-2 bg-blue-100 text-blue-800 px-4 py-2 rounded-full text-sm font-medium mb-8"
           >
             <AcademicCapIcon className="w-4 h-4" />
-            <span>Doctorate, Columbia Pacific University</span>
+            <span>Ph.D. in Research, Columbia Pacific University</span>
           </motion.div>
           
           {/* Main Headline */}
@@ -98,14 +98,14 @@ export default function HeroSection() {
                 <DocumentTextIcon className="w-6 h-6" />
               </div>
               <div className="text-2xl font-bold text-gray-900 mb-1">500+</div>
-              <div className="text-sm text-gray-600">Happy Clients</div>
+              <div className="text-sm text-gray-600">Transactions</div>
             </div>
             <div className="text-center">
               <div className="bg-purple-100 text-purple-600 p-3 rounded-lg w-fit mx-auto mb-3">
                 <AcademicCapIcon className="w-6 h-6" />
               </div>
-              <div className="text-2xl font-bold text-gray-900 mb-1">15+</div>
-              <div className="text-sm text-gray-600">Years Experience</div>
+              <div className="text-2xl font-bold text-gray-900 mb-1">Since 1983</div>
+              <div className="text-sm text-gray-600">In Real Estate</div>
             </div>
           </motion.div>
         </motion.div>

@@ -181,8 +181,7 @@ export default function ContactSection() {
           transition={{ duration: 0.6 }}
         >
           <p className="text-gray-400 text-sm">
-            <strong>Dr. Jan Duffy</strong> • REALTOR® License S.0197614.LLC • 
-            Berkshire Hathaway HomeServices Nevada Properties
+            <strong>Dr. Jan Duffy</strong> • REALTOR® • In real estate since 1983
           </p>
           <p className="text-gray-400 text-sm mt-2">
             1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)

@@ -8,14 +8,14 @@ export default function CredentialsSection() {
   const credentials = [
     {
       icon: AcademicCapIcon,
-      title: "Doctorate Degree",
+      title: "Ph.D. in Research",
       description: "Columbia Pacific University",
       color: "blue"
     },
     {
       icon: ShieldCheckIcon,
-      title: "REALTOR® License",
-      description: "S.0197614.LLC",
+      title: "Top 1% Las Vegas REALTOR®",
+      description: "In real estate since 1983",
       color: "green"
     },
     {
@@ -75,7 +75,7 @@ export default function CredentialsSection() {
             <div className="text-center mb-8">
               <h3 className="text-2xl font-bold mb-4">Unique Value Proposition</h3>
               <p className="text-blue-100 max-w-3xl mx-auto">
-                Las Vegas&apos;s only research-driven REALTOR® combining doctorate-level methodology 
+                Las Vegas&apos;s only research-driven REALTOR® combining Ph.D. research methodology 
                 with exclusive market data access and proprietary algorithms.
               </p>
             </div>
