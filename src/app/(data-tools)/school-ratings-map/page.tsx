@@ -6,7 +6,7 @@ import EducationInsights from '@/components/data-tools/EducationInsights';
 
 export const metadata: Metadata = {
   title: "Las Vegas School Ratings Map & Education Data | Dr. Jan Duffy",
-  description: "Interactive map showing Las Vegas school ratings, test scores, and education data to help families find the best school districts.",
+  description: "Interactive map showing Las Vegas school ratings, test scores, and education data to help buyers compare school attendance zones.",
   keywords: "Las Vegas schools, school ratings, education data, school districts, test scores, interactive map",
 };
 
