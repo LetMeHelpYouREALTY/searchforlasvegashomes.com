@@ -8,7 +8,7 @@ export default function SchoolMapHero() {
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
             Interactive map showing Las Vegas school ratings, test scores, and education data 
-            to help families find the best school districts.
+            to help buyers compare school attendance zones.
           </p>
         </div>
       </div>
