@@ -151,7 +151,8 @@ export default function RootLayout({
         <SpeedInsights />
         <WebVitalsMonitor />
         {/* Widget Tracker */}
-        <Script id="widget-tracker" strategy="afterInteractive">{`
+        {process.env.VERCEL_ENV === "production" && (
+          <Script id="widget-tracker" strategy="afterInteractive">{`
           (function(w,i,d,g,e,t){w["WidgetTrackerObject"]=g;(w[g]=w[g]||function()
           {(w[g].q=w[g].q||[]).push(arguments);}),(w[g].ds=1*new Date());(e="script"),
           (t=d.createElement(e)),(e=d.getElementsByTagName(e)[0]);t.async=1;t.src=i;
@@ -159,7 +160,8 @@ export default function RootLayout({
           (window,"https://widgetbe.com/agent",document,"widgetTracker");
           window.widgetTracker("create", "WT-XQHVYQWW");
           window.widgetTracker("send", "pageview");
-        `}</Script>
+          `}</Script>
+        )}
       </body>
     </html>
   );
