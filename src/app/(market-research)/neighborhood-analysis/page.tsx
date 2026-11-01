@@ -5,6 +5,7 @@ import NeighborhoodGuides from '@/components/market-research/NeighborhoodGuides'
 import MarketInsights from '@/components/market-research/MarketInsights';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/neighborhood-analysis' },
   title: "Las Vegas Neighborhood Analysis & Market Insights | Dr. Jan Duffy",
   description: "Comprehensive neighborhood analysis with demographic data, school ratings, appreciation history, and market insights for Las Vegas communities.",
   keywords: "Las Vegas neighborhoods, neighborhood analysis, market insights, demographic data, school ratings, appreciation history",

@@ -5,6 +5,7 @@ import AppreciationTracker from '@/components/market-research/AppreciationTracke
 import InvestmentInsights from '@/components/market-research/InvestmentInsights';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/investment-calculator' },
   title: "Real Estate Investment Calculator & ROI Analysis | Dr. Jan Duffy",
   description: "Advanced investment calculator with ROI projections, appreciation modeling, and cash flow analysis for Las Vegas real estate investments.",
   keywords: "real estate investment calculator, ROI analysis, appreciation modeling, cash flow analysis, Las Vegas investments",

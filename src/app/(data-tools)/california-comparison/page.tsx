@@ -5,6 +5,7 @@ import MarketComparison from '@/components/data-tools/MarketComparison';
 import RelocationGuide from '@/components/data-tools/RelocationGuide';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/california-comparison' },
   title: "California vs Nevada Real Estate Cost Analysis | Dr. Jan Duffy",
   description: "Comprehensive comparison of California vs Nevada real estate costs, market conditions, and investment opportunities for relocating buyers.",
   keywords: "California vs Nevada, real estate comparison, cost analysis, relocation guide, investment opportunities, market comparison",

@@ -2,7 +2,7 @@ export default function StructuredData() {
   const personSchema = {
     "@context": "https://schema.org",
     "@type": "Person",
-    "@id": "https://searchforlasvegashomes.com/#dr-jan-duffy",
+    "@id": "https://www.searchforlasvegashomes.com/#dr-jan-duffy",
     "name": "Dr. Jan Duffy",
     "honorificPrefix": "Dr.",
     "jobTitle": ["Real Estate Market Researcher", "REALTOR®"],
@@ -49,10 +49,10 @@ export default function StructuredData() {
   const websiteSchema = {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "@id": "https://searchforlasvegashomes.com",
+    "@id": "https://www.searchforlasvegashomes.com",
     "name": "SearchForLasVegasHomes.com",
     "description": "Las Vegas's premier real estate market research and data analysis platform, powered by Dr. Jan Duffy's proprietary research methodology",
-    "url": "https://searchforlasvegashomes.com",
+    "url": "https://www.searchforlasvegashomes.com",
     "publisher": {
       "@type": "Person",
       "name": "Dr. Jan Duffy"
@@ -61,7 +61,7 @@ export default function StructuredData() {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://searchforlasvegashomes.com/search?q={search_term_string}"
+        "urlTemplate": "https://www.searchforlasvegashomes.com/search?q={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     },

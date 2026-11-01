@@ -154,7 +154,7 @@ export default function Navigation() {
           {/* CTA Button */}
           <div className="hidden lg:flex lg:items-center">
             <Link
-              href="/contact"
+              href="/#contact"
               className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors duration-200"
             >
               Get Analysis
@@ -263,7 +263,7 @@ export default function Navigation() {
               {/* Mobile CTA */}
               <div className="pt-4">
                 <Link
-                  href="/contact"
+                  href="/#contact"
                   className="block w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-lg text-base font-medium text-center transition-colors duration-200"
                   onClick={() => setMobileMenuOpen(false)}
                 >

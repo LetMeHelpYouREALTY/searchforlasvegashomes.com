@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://searchforlasvegashomes.com'),
+  metadataBase: new URL('https://www.searchforlasvegashomes.com'),
   alternates: {
     canonical: '/',
   },
@@ -49,7 +49,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://searchforlasvegashomes.com',
+    url: 'https://www.searchforlasvegashomes.com',
     siteName: 'SearchForLasVegasHomes.com',
     title: 'Dr. Jan Duffy - Las Vegas Premier Real Estate Market Researcher',
     description: 'Data-driven real estate insights and market analysis from Las Vegas\'s only research-driven REALTOR®',

@@ -57,7 +57,7 @@ const services = [
 
 export default function ContactSection() {
   return (
-    <section className="section-padding bg-gray-900 text-white">
+    <section id="contact" className="section-padding bg-gray-900 text-white">
       <div className="container-max">
         <motion.div 
           className="text-center mb-16"

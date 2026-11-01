@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://searchforlasvegashomes.com';
+  const baseUrl = 'https://www.searchforlasvegashomes.com';
   const businessAddress = '1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)';
   
   return {
@@ -20,7 +20,6 @@ export default function robots(): MetadataRoute.Robots {
           '/private/',
           '/api/analytics', // Analytics endpoint
           '/api/core-web-vitals', // Performance monitoring
-          '/_next/',
           '/node_modules/',
           '/.env',
           '/.git/',
@@ -79,11 +78,7 @@ export default function robots(): MetadataRoute.Robots {
     ],
     
     // Sitemap locations
-    sitemap: [
-      `${baseUrl}/sitemap.xml`,
-      `${baseUrl}/sitemap-images.xml`,
-      `${baseUrl}/sitemap-blog.xml`,
-    ],
+    sitemap: `${baseUrl}/sitemap.xml`,
     
     // Host directive for canonical domain
     host: baseUrl,

@@ -5,6 +5,7 @@ import ValuationFactors from '@/components/data-tools/ValuationFactors';
 import AccuracyMetrics from '@/components/data-tools/AccuracyMetrics';
 
 export const metadata: Metadata = {
+  alternates: { canonical: '/home-value-analyzer' },
   title: "AI-Powered Home Value Analyzer | Dr. Jan Duffy",
   description: "Get accurate home valuations using Dr. Jan's AI-powered analysis tool that combines 15+ data sources for precise property pricing.",
   keywords: "home value analyzer, AI valuation, property pricing, home appraisal, accurate valuation, data-driven pricing",
