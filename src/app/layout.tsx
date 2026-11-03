@@ -7,6 +7,7 @@ import { SpeedInsights } from '@vercel/speed-insights/next';
 import Navigation from '@/components/Navigation';
 import StructuredData from '@/components/StructuredData';
 import WebVitalsMonitor from '@/components/WebVitalsMonitor';
+import RealtorAnalytics from "../components/analytics/RealtorAnalytics";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -160,6 +161,7 @@ export default function RootLayout({
           window.widgetTracker("create", "WT-XQHVYQWW");
           window.widgetTracker("send", "pageview");
         `}</Script>
+        <RealtorAnalytics siteName="searchforlasvegashomes.com" />
       </body>
     </html>
   );
