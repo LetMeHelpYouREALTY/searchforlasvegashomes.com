@@ -1,23 +1,32 @@
 import { Metadata } from 'next';
 import AboutHero from '@/components/about/AboutHero';
-import ResearchMethodology from '@/components/about/ResearchMethodology';
-import AcademicBackground from '@/components/about/AcademicBackground';
-import ProfessionalJourney from '@/components/about/ProfessionalJourney';
+import RealtorSkills from '@/components/about/RealtorSkills';
+import HowSheWorks from '@/components/about/HowSheWorks';
+import PracticeCredentials from '@/components/about/PracticeCredentials';
+import ContactSection from '@/components/ContactSection';
+import { AGENT_NAME, PHONE_DISPLAY, SITE_NAME } from '@/config/site';
 
 export const metadata: Metadata = {
   alternates: { canonical: '/about' },
-  title: "Meet Dr. Jan: Market Research Expert | SearchForLasVegasHomes.com",
-  description: "Discover how Dr. Jan Duffy combines academic research with real estate expertise to deliver data-driven market insights in Las Vegas.",
-  keywords: "Dr. Jan Duffy, real estate market research, Las Vegas real estate expert, data-driven analysis, academic background",
+  title: `About ${AGENT_NAME} — Las Vegas REALTOR® Skills`,
+  description: `Meet ${AGENT_NAME}, Las Vegas REALTOR®. Buyer representation, pricing, negotiation, and closing skills for home search. Call ${PHONE_DISPLAY}.`,
+  keywords: [
+    'Dr. Jan Duffy REALTOR',
+    'Las Vegas real estate agent',
+    'buyer representation Las Vegas',
+    'home negotiation Las Vegas',
+    SITE_NAME,
+  ],
 };
 
 export default function AboutPage() {
   return (
     <main className="min-h-screen">
       <AboutHero />
-      <ResearchMethodology />
-      <AcademicBackground />
-      <ProfessionalJourney />
+      <RealtorSkills />
+      <HowSheWorks />
+      <PracticeCredentials />
+      <ContactSection />
     </main>
   );
 }
