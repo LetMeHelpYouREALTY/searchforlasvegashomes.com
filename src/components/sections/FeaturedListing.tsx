@@ -195,7 +195,7 @@ const factsOf = (l: typeof FEATURED_LISTING) => [
 function Attribution() {
   const l = FEATURED_LISTING;
   return (
-    <p className="mt-1 text-slate-700">
+    <p className="mt-1 text-[var(--color-text-muted)]">
       Listing offered by {l.listingOffice} · Listing agent Dr. Jan Duffy · MLS #
       {l.mlsNumber}
     </p>
@@ -206,11 +206,16 @@ function Facts() {
   return (
     <dl className="mt-5 grid grid-cols-2 gap-3 sm:grid-cols-4">
       {factsOf(FEATURED_LISTING).map((f) => (
-        <div key={f.label} className="rounded-lg bg-white p-3 text-center">
-          <dt className="text-xs uppercase tracking-wide text-slate-500">
+        <div
+          key={f.label}
+          className="border border-[var(--color-line)] bg-[var(--color-mist)] p-3 text-center"
+        >
+          <dt className="text-xs uppercase tracking-wide text-[var(--color-text-muted)]">
             {f.label}
           </dt>
-          <dd className="text-lg font-bold text-slate-900">{f.value}</dd>
+          <dd className="text-lg font-semibold text-[var(--color-ink)]">
+            {f.value}
+          </dd>
         </div>
       ))}
     </dl>
@@ -229,70 +234,66 @@ export default function FeaturedListing({
     <section
       id="featured-listing"
       aria-labelledby="featured-listing-heading"
-      className="border-b border-slate-200 bg-white py-10 md:py-12"
+      className="border-b border-[var(--color-line)] bg-[var(--color-paper)] py-14 md:py-16"
     >
-      <div className="container mx-auto max-w-5xl px-4">
-        <div className="rounded-2xl border border-slate-200 bg-slate-50 p-6 shadow-sm md:p-8">
+      <div className="container-max max-w-5xl">
+        <p className="eyebrow">Featured for buyers</p>
+        <div className="mt-6 grid gap-8 lg:grid-cols-2 lg:items-center">
           {l.image ? (
-            <figure className="mb-5">
+            <figure>
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src={l.image}
                 alt={l.imageAlt}
                 width={1600}
                 height={1200}
-                className="aspect-[16/9] w-full rounded-xl object-cover"
+                className="aspect-[4/3] w-full object-cover"
               />
-              <figcaption className="mt-1 text-xs text-slate-500">
+              <figcaption className="mt-2 text-xs text-[var(--color-text-muted)]">
                 {l.imageCaption}
               </figcaption>
             </figure>
           ) : null}
-          <p className="text-sm font-semibold uppercase tracking-wide text-blue-700">
-            New listing · For sale
-          </p>
-          <div className="mt-2 flex flex-col gap-2 md:flex-row md:items-baseline md:justify-between">
+          <div>
+            <p className="text-sm font-medium uppercase tracking-[0.18em] text-[var(--color-brass)]">
+              New listing · For sale
+            </p>
             <h2
               id="featured-listing-heading"
-              className="text-2xl font-bold text-slate-900 md:text-3xl"
+              className="display-title mt-3 text-3xl text-[var(--color-ink)] md:text-4xl"
             >
               {l.address}, {l.city}, {l.state} {l.zip}
             </h2>
-            <p className="text-2xl font-bold text-slate-900 md:text-3xl">
+            <p className="mt-2 text-3xl font-semibold text-[var(--color-ink)]">
               {l.price}
             </p>
+            <Attribution />
+            <p className="mt-4 text-lg font-medium text-[var(--color-ink)]">
+              {l.headline}
+            </p>
+            <p className="mt-2 text-[var(--color-text-muted)]">{l.summary}</p>
+            <Facts />
+            <div className="mt-6 flex flex-col gap-3 sm:flex-row">
+              <a href={FEATURED_LISTING_PATH} className="btn-primary">
+                See the full listing
+              </a>
+              <a
+                href={featuredListingRealScoutUrl(siteHost, "home-band")}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="btn-outline-dark"
+              >
+                See all photos
+              </a>
+              <a href={phoneHref} className="btn-outline-dark">
+                Call {phone} to tour
+              </a>
+            </div>
+            <p className="mt-4 text-xs text-[var(--color-text-muted)]">
+              Source: GLVAR. Information deemed reliable but not guaranteed.
+              Equal Housing Opportunity.
+            </p>
           </div>
-          <Attribution />
-          <p className="mt-3 text-lg font-semibold text-slate-800">
-            {l.headline}
-          </p>
-          <p className="mt-2 text-slate-700">{l.summary}</p>
-          <Facts />
-          <div className="mt-6 flex flex-col gap-3 sm:flex-row">
-            <a
-              href={FEATURED_LISTING_PATH}
-              className="inline-flex items-center justify-center rounded-lg bg-blue-700 px-5 py-3 font-semibold text-white hover:bg-blue-800"
-            >
-              See the full listing
-            </a>
-            <a
-              href={featuredListingRealScoutUrl(siteHost, "home-band")}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 hover:bg-slate-100"
-            >
-              See all photos
-            </a>
-            <a
-              href={phoneHref}
-              className="inline-flex items-center justify-center rounded-lg border border-slate-300 bg-white px-5 py-3 font-semibold text-slate-900 hover:bg-slate-100"
-            >
-              Call Dr. Jan Duffy at {phone} to tour
-            </a>
-          </div>
-          <p className="mt-4 text-xs text-slate-500">
-            Source: GLVAR. Information deemed reliable but not guaranteed.
-          </p>
         </div>
       </div>
     </section>

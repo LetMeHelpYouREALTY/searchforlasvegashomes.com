@@ -1,110 +1,63 @@
 import type { NextConfig } from "next";
 
+const csp = [
+  "default-src 'self'",
+  "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://em.realscout.com https://www.realscout.com https://va.vercel-scripts.com https://vercel.live https://widgetbe.com",
+  "connect-src 'self' https://www.realscout.com https://em.realscout.com https://vitals.vercel-insights.com https://va.vercel-scripts.com https://vercel.live https://widgetbe.com",
+  "img-src 'self' data: blob: https:",
+  "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
+  "font-src 'self' data: https://fonts.gstatic.com",
+  "frame-src 'self' https://www.google.com https://maps.google.com https://www.realscout.com https://em.realscout.com https://vercel.live",
+  "worker-src 'self' blob:",
+].join("; ");
+
 const nextConfig: NextConfig = {
-  // Google's August 2025 requirements
   experimental: {
-    // Enable latest optimizations
-    optimizePackageImports: ['@heroicons/react', 'framer-motion'],
-    // INP optimization
+    optimizePackageImports: ["@heroicons/react", "framer-motion"],
   },
-  
+
   images: {
-    // Google's preferred format order for 2025
-    formats: ['image/avif', 'image/webp'],
-    // Minimum cache TTL for Core Web Vitals
+    formats: ["image/avif", "image/webp"],
     minimumCacheTTL: 31536000,
-    // Enable AVIF support
     dangerouslyAllowSVG: true,
-    contentDispositionType: 'attachment',
-    // Real estate specific optimization
+    contentDispositionType: "attachment",
     deviceSizes: [320, 640, 768, 1024, 1366, 1920],
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
-    // INP optimization
-    unoptimized: false,
+    remotePatterns: [
+      { protocol: "https", hostname: "em.realscout.com" },
+      { protocol: "https", hostname: "www.realscout.com" },
+    ],
   },
-  
-  // Performance optimizations for Core Web Vitals
+
   compress: true,
   poweredByHeader: false,
-  
-  // Headers for Core Web Vitals optimization
+
   async headers() {
     return [
       {
-        source: '/(.*)',
+        source: "/(.*)",
         headers: [
+          { key: "X-DNS-Prefetch-Control", value: "on" },
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on'
+            key: "Strict-Transport-Security",
+            value: "max-age=63072000; includeSubDomains; preload",
           },
-          {
-            key: 'Strict-Transport-Security',
-            value: 'max-age=63072000; includeSubDomains; preload'
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff'
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'DENY'
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block'
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'origin-when-cross-origin'
-          },
-          // Core Web Vitals optimization headers
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
-          }
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          { key: "Referrer-Policy", value: "origin-when-cross-origin" },
+          { key: "Content-Security-Policy", value: csp },
         ],
       },
-      // Image optimization headers
       {
-        source: '/images/(.*)',
+        source: "/images/(.*)",
         headers: [
           {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable'
+            key: "Cache-Control",
+            value: "public, max-age=31536000, immutable",
           },
-          {
-            key: 'Accept-Encoding',
-            value: 'br, gzip, deflate'
-          }
         ],
-      }
+      },
     ];
-  },
-  
-  // Webpack optimizations for INP
-  webpack: (config, { dev, isServer }) => {
-    if (!dev && !isServer) {
-      // Production optimizations
-      config.optimization.splitChunks = {
-        chunks: 'all',
-        cacheGroups: {
-          vendor: {
-            test: /[\\/]node_modules[\\/]/,
-            name: 'vendors',
-            chunks: 'all',
-          },
-          // Separate image chunks for better caching
-          images: {
-            test: /\.(png|jpe?g|gif|svg|webp|avif)$/,
-            name: 'images',
-            chunks: 'all',
-            enforce: true,
-          },
-        },
-      };
-    }
-    
-    return config;
   },
 };
 

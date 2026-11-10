@@ -5,6 +5,7 @@ import {
   FeaturedListingPageBody,
   featuredListingJsonLd,
 } from "@/components/sections/FeaturedListing";
+import { PHONE_DISPLAY, PHONE_HREF, SITE_HOST } from "@/config/site";
 
 const l = FEATURED_LISTING;
 const title = `${l.address}, ${l.city} ${l.zip} | ${l.price} | Pool, No HOA, Owned Solar`;
@@ -48,9 +49,9 @@ export default function FeaturedListingPage() {
         dangerouslySetInnerHTML={{ __html: jsonLd }}
       />
       <FeaturedListingPageBody
-        phone={"(702) 500-1955"}
-        phoneHref={"tel:+17025001955"}
-        siteHost={"searchforlasvegashomes.com"}
+        phone={PHONE_DISPLAY}
+        phoneHref={PHONE_HREF}
+        siteHost={SITE_HOST}
       />
     </>
   );

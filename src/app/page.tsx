@@ -1,25 +1,25 @@
 import HeroSection from '@/components/HeroSection';
 import FeaturedListing from '@/components/sections/FeaturedListing';
-import CredentialsSection from '@/components/CredentialsSection';
-import ResearchSpecializations from '@/components/ResearchSpecializations';
-import MarketAnalysisTools from '@/components/MarketAnalysisTools';
-import TestimonialsSection from '@/components/TestimonialsSection';
+import NeighborhoodGuides from '@/components/sections/NeighborhoodGuides';
+import BuyerPath from '@/components/sections/BuyerPath';
+import LuxuryListings from '@/components/sections/LuxuryListings';
+import BuyerFaq from '@/components/sections/BuyerFaq';
 import ContactSection from '@/components/ContactSection';
+import { PHONE_DISPLAY, PHONE_HREF, SITE_HOST } from '@/config/site';
 
 export default function Home() {
   return (
     <main className="min-h-screen">
       <HeroSection />
-
       <FeaturedListing
-        phone={"(702) 500-1955"}
-        phoneHref={"tel:+17025001955"}
-        siteHost="searchforlasvegashomes.com"
+        phone={PHONE_DISPLAY}
+        phoneHref={PHONE_HREF}
+        siteHost={SITE_HOST}
       />
-      <CredentialsSection />
-      <ResearchSpecializations />
-      <MarketAnalysisTools />
-      <TestimonialsSection />
+      <NeighborhoodGuides />
+      <LuxuryListings />
+      <BuyerPath />
+      <BuyerFaq />
       <ContactSection />
     </main>
   );
