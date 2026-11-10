@@ -1,0 +1,3 @@
+Contact: mailto:drjan@searchforlasvegashomes.com
+Preferred-Languages: en
+Canonical: https://www.searchforlasvegashomes.com/.well-known/security.txt

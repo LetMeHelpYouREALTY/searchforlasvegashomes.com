@@ -3,21 +3,24 @@ import NeighborhoodHero from '@/components/market-research/NeighborhoodHero';
 import NeighborhoodMap from '@/components/market-research/NeighborhoodMap';
 import NeighborhoodGuides from '@/components/market-research/NeighborhoodGuides';
 import MarketInsights from '@/components/market-research/MarketInsights';
+import ToolPageShell from '@/components/seo/ToolPageShell';
+import { TOOL_PAGES } from '@/config/toolPages';
+
+const page = TOOL_PAGES['neighborhood-analysis'];
 
 export const metadata: Metadata = {
-  alternates: { canonical: '/neighborhood-analysis' },
-  title: "Las Vegas Neighborhood Analysis & Market Insights | Dr. Jan Duffy",
-  description: "Comprehensive neighborhood analysis with demographic data, school ratings, appreciation history, and market insights for Las Vegas communities.",
-  keywords: "Las Vegas neighborhoods, neighborhood analysis, market insights, demographic data, school ratings, appreciation history",
+  alternates: { canonical: page.path },
+  title: page.title,
+  description: page.description,
 };
 
 export default function NeighborhoodAnalysisPage() {
   return (
-    <main className="min-h-screen">
+    <ToolPageShell {...page}>
       <NeighborhoodHero />
       <NeighborhoodMap />
       <NeighborhoodGuides />
       <MarketInsights />
-    </main>
+    </ToolPageShell>
   );
 }

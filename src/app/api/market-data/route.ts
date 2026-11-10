@@ -1,6 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     // This would integrate with real data sources in production
     const marketData = {
@@ -51,7 +51,7 @@ export async function GET(request: NextRequest) {
     };
 
     return NextResponse.json(marketData);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Failed to fetch market data' },
       { status: 500 }
@@ -72,7 +72,7 @@ export async function POST(request: NextRequest) {
     };
 
     return NextResponse.json(response);
-  } catch (error) {
+  } catch {
     return NextResponse.json(
       { error: 'Failed to process market data request' },
       { status: 500 }

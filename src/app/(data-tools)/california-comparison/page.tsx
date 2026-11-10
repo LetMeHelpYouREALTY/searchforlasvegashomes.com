@@ -3,21 +3,24 @@ import ComparisonHero from '@/components/data-tools/ComparisonHero';
 import CostAnalysis from '@/components/data-tools/CostAnalysis';
 import MarketComparison from '@/components/data-tools/MarketComparison';
 import RelocationGuide from '@/components/data-tools/RelocationGuide';
+import ToolPageShell from '@/components/seo/ToolPageShell';
+import { TOOL_PAGES } from '@/config/toolPages';
+
+const page = TOOL_PAGES['california-comparison'];
 
 export const metadata: Metadata = {
-  alternates: { canonical: '/california-comparison' },
-  title: "California vs Nevada Real Estate Cost Analysis | Dr. Jan Duffy",
-  description: "Comprehensive comparison of California vs Nevada real estate costs, market conditions, and investment opportunities for relocating buyers.",
-  keywords: "California vs Nevada, real estate comparison, cost analysis, relocation guide, investment opportunities, market comparison",
+  alternates: { canonical: page.path },
+  title: page.title,
+  description: page.description,
 };
 
 export default function CaliforniaComparisonPage() {
   return (
-    <main className="min-h-screen">
+    <ToolPageShell {...page}>
       <ComparisonHero />
       <CostAnalysis />
       <MarketComparison />
       <RelocationGuide />
-    </main>
+    </ToolPageShell>
   );
 }

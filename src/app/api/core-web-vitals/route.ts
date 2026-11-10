@@ -63,7 +63,10 @@ export async function GET() {
   });
 }
 
-function validateCoreWebVitals(vitals: any) {
+type VitalsPayload = Record<string, number | string | boolean | undefined>;
+type ComplianceMap = Record<string, string>;
+
+function validateCoreWebVitals(vitals: VitalsPayload) {
   const errors: string[] = [];
   const required = ['LCP', 'INP', 'CLS', 'TTFB'];
   
@@ -79,46 +82,75 @@ function validateCoreWebVitals(vitals: any) {
   };
 }
 
-function checkCompliance(vitals: any) {
-  const compliance = {
-    LCP: vitals.LCP <= GOOGLE_2025_THRESHOLDS.LCP ? 'good' : 'needs-improvement',
-    INP: vitals.INP <= GOOGLE_2025_THRESHOLDS.INP ? 'good' : 'needs-improvement',
-    CLS: vitals.CLS <= GOOGLE_2025_THRESHOLDS.CLS ? 'good' : 'needs-improvement',
-    TTFB: vitals.TTFB <= GOOGLE_2025_THRESHOLDS.TTFB ? 'good' : 'needs-improvement',
+function metricNumber(vitals: VitalsPayload, key: string): number {
+  const value = vitals[key];
+  return typeof value === 'number' ? value : Number.POSITIVE_INFINITY;
+}
+
+function checkCompliance(vitals: VitalsPayload) {
+  const compliance: ComplianceMap = {
+    LCP:
+      metricNumber(vitals, 'LCP') <= GOOGLE_2025_THRESHOLDS.LCP
+        ? 'good'
+        : 'needs-improvement',
+    INP:
+      metricNumber(vitals, 'INP') <= GOOGLE_2025_THRESHOLDS.INP
+        ? 'good'
+        : 'needs-improvement',
+    CLS:
+      metricNumber(vitals, 'CLS') <= GOOGLE_2025_THRESHOLDS.CLS
+        ? 'good'
+        : 'needs-improvement',
+    TTFB:
+      metricNumber(vitals, 'TTFB') <= GOOGLE_2025_THRESHOLDS.TTFB
+        ? 'good'
+        : 'needs-improvement',
   };
-  
-  const allGood = Object.values(compliance).every(status => status === 'good');
-  
+
+  const allGood = Object.values(compliance).every((status) => status === 'good');
+
   return {
     ...compliance,
     overall: allGood ? 'compliant' : 'needs-improvement',
-    score: calculateScore(compliance)
+    score: calculateScore(compliance),
   };
 }
 
-function calculateScore(compliance: any) {
-  const goodCount = Object.values(compliance).filter(status => status === 'good').length;
+function calculateScore(compliance: ComplianceMap) {
+  const goodCount = Object.values(compliance).filter(
+    (status) => status === 'good',
+  ).length;
   return Math.round((goodCount / 4) * 100);
 }
 
-function generateRecommendations(vitals: any) {
-  const recommendations = [];
-  
-  if (vitals.LCP > GOOGLE_2025_THRESHOLDS.LCP) {
-    recommendations.push('Optimize above-the-fold images and critical resources');
+function generateRecommendations(vitals: VitalsPayload) {
+  const recommendations: string[] = [];
+
+  if (metricNumber(vitals, 'LCP') > GOOGLE_2025_THRESHOLDS.LCP) {
+    recommendations.push(
+      'Optimize above-the-fold images and critical resources',
+    );
   }
-  
-  if (vitals.INP > GOOGLE_2025_THRESHOLDS.INP) {
-    recommendations.push('Reduce JavaScript execution time and optimize event handlers');
+
+  if (metricNumber(vitals, 'INP') > GOOGLE_2025_THRESHOLDS.INP) {
+    recommendations.push(
+      'Reduce JavaScript execution time and optimize event handlers',
+    );
   }
-  
-  if (vitals.CLS > GOOGLE_2025_THRESHOLDS.CLS) {
-    recommendations.push('Set explicit dimensions for images and avoid layout shifts');
+
+  if (metricNumber(vitals, 'CLS') > GOOGLE_2025_THRESHOLDS.CLS) {
+    recommendations.push(
+      'Set explicit dimensions for images and avoid layout shifts',
+    );
   }
-  
-  if (vitals.TTFB > GOOGLE_2025_THRESHOLDS.TTFB) {
-    recommendations.push('Optimize server response time and implement caching');
+
+  if (metricNumber(vitals, 'TTFB') > GOOGLE_2025_THRESHOLDS.TTFB) {
+    recommendations.push(
+      'Optimize server response time and implement caching',
+    );
   }
-  
-  return recommendations.length > 0 ? recommendations : ['All metrics are within Google\'s recommended thresholds'];
+
+  return recommendations.length > 0
+    ? recommendations
+    : ["All metrics are within Google's recommended thresholds"];
 }

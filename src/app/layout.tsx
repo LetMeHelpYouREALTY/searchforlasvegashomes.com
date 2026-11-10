@@ -44,6 +44,16 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  verification: {
+    google:
+      process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ||
+      undefined,
+  },
+  other: {
+    "geo.region": "US-NV",
+    "geo.placename": "Las Vegas",
+    ICBM: "36.1507, -115.3332",
+  },
   openGraph: {
     type: "website",
     locale: "en_US",
@@ -105,10 +115,6 @@ export default function RootLayout({
           rel="preconnect"
           href="https://fonts.gstatic.com"
           crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&display=swap"
-          rel="stylesheet"
         />
         <link rel="preconnect" href="https://em.realscout.com" />
         <link rel="dns-prefetch" href="//www.realscout.com" />

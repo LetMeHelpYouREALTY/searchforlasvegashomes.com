@@ -3,21 +3,24 @@ import ValueAnalyzerHero from '@/components/data-tools/ValueAnalyzerHero';
 import AIValuationTool from '@/components/data-tools/AIValuationTool';
 import ValuationFactors from '@/components/data-tools/ValuationFactors';
 import AccuracyMetrics from '@/components/data-tools/AccuracyMetrics';
+import ToolPageShell from '@/components/seo/ToolPageShell';
+import { TOOL_PAGES } from '@/config/toolPages';
+
+const page = TOOL_PAGES['home-value-analyzer'];
 
 export const metadata: Metadata = {
-  alternates: { canonical: '/home-value-analyzer' },
-  title: "AI-Powered Home Value Analyzer | Dr. Jan Duffy",
-  description: "Get accurate home valuations using Dr. Jan's AI-powered analysis tool that combines 15+ data sources for precise property pricing.",
-  keywords: "home value analyzer, AI valuation, property pricing, home appraisal, accurate valuation, data-driven pricing",
+  alternates: { canonical: page.path },
+  title: page.title,
+  description: page.description,
 };
 
 export default function HomeValueAnalyzerPage() {
   return (
-    <main className="min-h-screen">
+    <ToolPageShell {...page}>
       <ValueAnalyzerHero />
       <AIValuationTool />
       <ValuationFactors />
       <AccuracyMetrics />
-    </main>
+    </ToolPageShell>
   );
 }

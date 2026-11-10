@@ -1,7 +1,25 @@
 'use client';
 
 import { useEffect } from 'react';
-import { onCLS, onFID, onFCP, onLCP, onTTFB, onINP } from 'web-vitals';
+import {
+  onCLS,
+  onFID,
+  onFCP,
+  onLCP,
+  onTTFB,
+  onINP,
+  type Metric,
+} from 'web-vitals';
+
+type GtagFn = (...args: unknown[]) => void;
+
+declare global {
+  interface Window {
+    gtag?: GtagFn;
+  }
+}
+
+type VitalsMap = Partial<Record<string, number>>;
 
 // Google's August 2025 Core Web Vitals thresholds
 const GOOGLE_2025_THRESHOLDS = {
@@ -26,10 +44,10 @@ export default function WebVitalsMonitor() {
   return null; // This component doesn't render anything
 }
 
-function sendToAnalytics(metric: any) {
+function sendToAnalytics(metric: Metric) {
   // Send to Google Analytics 4
-  if (typeof window !== 'undefined' && (window as any).gtag) {
-    (window as any).gtag('event', metric.name, {
+  if (typeof window !== 'undefined' && window.gtag) {
+    window.gtag('event', metric.name, {
       event_category: 'Web Vitals',
       event_label: metric.id,
       value: Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value),
@@ -67,7 +85,7 @@ function getRating(metricName: string, value: number): 'good' | 'needs-improveme
   return 'poor';
 }
 
-async function sendToCoreWebVitalsAPI(metric: any) {
+async function sendToCoreWebVitalsAPI(metric: Metric) {
   try {
     // Collect all available metrics
     const vitals = {
@@ -93,9 +111,9 @@ async function sendToCoreWebVitalsAPI(metric: any) {
 // Real-time monitoring hook for components
 export function useWebVitals() {
   useEffect(() => {
-    let vitalsData: any = {};
+    let vitalsData: VitalsMap = {};
     
-    const collectVitals = (metric: any) => {
+    const collectVitals = (metric: Metric) => {
       vitalsData[metric.name] = metric.value;
       
       // Send batch update every 5 seconds
@@ -122,7 +140,7 @@ export function useWebVitals() {
   }, []);
 }
 
-async function sendBatchVitals(vitals: any) {
+async function sendBatchVitals(vitals: VitalsMap) {
   try {
     await fetch('/api/core-web-vitals', {
       method: 'POST',
@@ -141,7 +159,7 @@ async function sendBatchVitals(vitals: any) {
 }
 
 // Performance monitoring utilities
-export function getPerformanceScore(vitals: any): number {
+export function getPerformanceScore(vitals: VitalsMap): number {
   let score = 0;
   let total = 0;
 
@@ -167,7 +185,7 @@ export function getPerformanceScore(vitals: any): number {
   return total > 0 ? Math.round(score / total) : 0;
 }
 
-export function getPerformanceRecommendations(vitals: any): string[] {
+export function getPerformanceRecommendations(vitals: VitalsMap): string[] {
   const recommendations: string[] = [];
 
   Object.entries(vitals).forEach(([name, value]) => {

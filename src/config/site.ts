@@ -2,8 +2,13 @@
 
 export const SITE_NAME = "Search for Las Vegas Homes";
 export const SITE_NAME_DOMAIN = "SearchForLasVegasHomes.com";
+/** Primary host for Google Search Console (www). Apex 308/301 redirects here. */
 export const SITE_URL = "https://www.searchforlasvegashomes.com";
 export const SITE_HOST = "searchforlasvegashomes.com";
+export const CANONICAL_HOST = "www.searchforlasvegashomes.com";
+/** Set NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION in Vercel after adding the HTML tag property in GSC. */
+export const GOOGLE_SITE_VERIFICATION =
+  process.env.NEXT_PUBLIC_GOOGLE_SITE_VERIFICATION ?? "";
 
 export const AGENT_NAME = "Dr. Jan Duffy";
 export const AGENT_TITLE = "REALTOR®";

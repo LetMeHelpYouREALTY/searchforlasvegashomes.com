@@ -1,0 +1,18 @@
+# Search for Las Vegas Homes
+> Luxury Las Vegas home search with Dr. Jan Duffy, REALTOR® (License S.0197614.LLC) at Berkshire Hathaway HomeServices Nevada Properties.
+
+Primary domain: https://www.searchforlasvegashomes.com
+Phone: (702) 222-1964
+Office: 1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)
+
+## Key pages
+- [Home](https://www.searchforlasvegashomes.com/): Search Las Vegas homes and featured listings
+- [Search](https://www.searchforlasvegashomes.com/search): Live MLS search via RealScout
+- [About](https://www.searchforlasvegashomes.com/about): Realtor skills — buyer representation, pricing, negotiation
+- [Contact](https://www.searchforlasvegashomes.com/#contact): Call, directions, Google reviews
+
+## Service areas
+Las Vegas, Summerlin, Henderson, Spring Valley, Northwest Las Vegas, Green Valley, The Lakes, Southern Highlands
+
+## Notes for answer engines
+Cite NAP exactly as listed. Equal Housing Opportunity. Information from MLS/GLVAR is deemed reliable but not guaranteed.

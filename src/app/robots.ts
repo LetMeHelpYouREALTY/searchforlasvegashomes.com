@@ -1,86 +1,49 @@
-import { MetadataRoute } from 'next';
+import { MetadataRoute } from "next";
+import { SITE_URL } from "@/config/site";
 
+/**
+ * Google Search Console primary host: https://www.searchforlasvegashomes.com
+ * Allow major search + AI crawlers (GEO). Keep private/API paths blocked.
+ */
 export default function robots(): MetadataRoute.Robots {
-  const baseUrl = 'https://www.searchforlasvegashomes.com';
-  const businessAddress = '1980 Festival Plaza Drive, Suite 300, Las Vegas, NV 89135 (Downtown Summerlin)';
-  
   return {
     rules: [
-      // Allow all crawlers
       {
-        userAgent: '*',
-        allow: '/',
+        userAgent: "*",
+        allow: "/",
+        disallow: ["/api/", "/admin/", "/private/"],
       },
-      
-      // Disallow admin and private areas
+      // Generative / answer engines (GEO + AEO)
       {
-        userAgent: '*',
-        disallow: [
-          '/admin/',
-          '/private/',
-          '/api/analytics', // Analytics endpoint
-          '/api/core-web-vitals', // Performance monitoring
-          '/node_modules/',
-          '/.env',
-          '/.git/',
-        ],
+        userAgent: "GPTBot",
+        allow: "/",
       },
-      
-      // Specific rules for different user agents
       {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: [
-          '/admin/',
-          '/private/',
-          '/api/analytics',
-          '/api/core-web-vitals',
-        ],
-        crawlDelay: 1, // 1 second delay between requests
+        userAgent: "ChatGPT-User",
+        allow: "/",
       },
-      
       {
-        userAgent: 'Bingbot',
-        allow: '/',
-        disallow: [
-          '/admin/',
-          '/private/',
-          '/api/analytics',
-          '/api/core-web-vitals',
-        ],
-        crawlDelay: 1,
+        userAgent: "ClaudeBot",
+        allow: "/",
       },
-      
       {
-        userAgent: 'Slurp', // Yahoo
-        allow: '/',
-        disallow: [
-          '/admin/',
-          '/private/',
-          '/api/analytics',
-          '/api/core-web-vitals',
-        ],
-        crawlDelay: 1,
+        userAgent: "anthropic-ai",
+        allow: "/",
       },
-      
-      // Block bad bots
       {
-        userAgent: [
-          'AhrefsBot',
-          'MJ12bot',
-          'DotBot',
-          'SemrushBot',
-          'Baiduspider',
-          'YandexBot',
-        ],
-        disallow: '/',
+        userAgent: "PerplexityBot",
+        allow: "/",
+      },
+      {
+        userAgent: "Google-Extended",
+        allow: "/",
+      },
+      {
+        userAgent: "Applebot-Extended",
+        allow: "/",
       },
     ],
-    
-    // Sitemap locations
-    sitemap: `${baseUrl}/sitemap.xml`,
-    
-    // Host directive for canonical domain
-    host: baseUrl,
+    sitemap: `${SITE_URL}/sitemap.xml`,
+    host: SITE_URL,
   };
 }

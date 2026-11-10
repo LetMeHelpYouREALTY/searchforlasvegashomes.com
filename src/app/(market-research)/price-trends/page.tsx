@@ -3,21 +3,24 @@ import PriceTrendsHero from '@/components/market-research/PriceTrendsHero';
 import PriceCharts from '@/components/market-research/PriceCharts';
 import MarketMetrics from '@/components/market-research/MarketMetrics';
 import TrendAnalysis from '@/components/market-research/TrendAnalysis';
+import ToolPageShell from '@/components/seo/ToolPageShell';
+import { TOOL_PAGES } from '@/config/toolPages';
+
+const page = TOOL_PAGES['price-trends'];
 
 export const metadata: Metadata = {
-  alternates: { canonical: '/price-trends' },
-  title: "Las Vegas Real Estate Price Trends & Market Data | Dr. Jan Duffy",
-  description: "Real-time pricing data, market trends, and price analysis for Las Vegas real estate with interactive charts and market metrics.",
-  keywords: "Las Vegas price trends, real estate pricing, market data, price analysis, market trends, interactive charts",
+  alternates: { canonical: page.path },
+  title: page.title,
+  description: page.description,
 };
 
 export default function PriceTrendsPage() {
   return (
-    <main className="min-h-screen">
+    <ToolPageShell {...page}>
       <PriceTrendsHero />
       <PriceCharts />
       <MarketMetrics />
       <TrendAnalysis />
-    </main>
+    </ToolPageShell>
   );
 }

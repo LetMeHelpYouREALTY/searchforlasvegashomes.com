@@ -1,4 +1,8 @@
-const faqs = [
+import type { FaqItem } from '@/lib/seo/jsonLd';
+import JsonLd from '@/components/seo/JsonLd';
+import { buildFaqSchema, buildGraph } from '@/lib/seo/schemas';
+
+const defaultFaqs: FaqItem[] = [
   {
     q: 'How do I search Las Vegas homes on this site?',
     a: 'Use the search bar on the homepage or open the Search page for advanced filters. Results pull live MLS inventory through RealScout for Dr. Jan Duffy’s account.',
@@ -17,23 +21,21 @@ const faqs = [
   },
 ];
 
-export default function BuyerFaq() {
-  const schema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqs.map((f) => ({
-      '@type': 'Question',
-      name: f.q,
-      acceptedAnswer: { '@type': 'Answer', text: f.a },
-    })),
-  };
+type BuyerFaqProps = {
+  faqs?: FaqItem[];
+  /** Set false when a parent page already emits FAQPage JSON-LD. */
+  includeSchema?: boolean;
+};
 
+export default function BuyerFaq({
+  faqs = defaultFaqs,
+  includeSchema = true,
+}: BuyerFaqProps) {
   return (
     <section id="faq" className="section-pad bg-[var(--color-paper)]">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
-      />
+      {includeSchema ? (
+        <JsonLd data={buildGraph([buildFaqSchema(faqs)])} />
+      ) : null}
       <div className="container-max max-w-3xl">
         <p className="eyebrow">Buyer questions</p>
         <h2 className="display-title mt-3 text-4xl text-[var(--color-ink)] md:text-5xl">
@@ -43,7 +45,9 @@ export default function BuyerFaq() {
         <dl className="mt-12 space-y-8">
           {faqs.map((f) => (
             <div key={f.q} className="border-t border-[var(--color-line)] pt-6">
-              <dt className="display-title text-2xl text-[var(--color-ink)]">{f.q}</dt>
+              <dt className="display-title text-2xl text-[var(--color-ink)]">
+                {f.q}
+              </dt>
               <dd className="mt-3 text-[var(--color-text-muted)]">{f.a}</dd>
             </div>
           ))}

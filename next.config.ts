@@ -31,6 +31,19 @@ const nextConfig: NextConfig = {
 
   compress: true,
   poweredByHeader: false,
+  trailingSlash: false,
+
+  async redirects() {
+    return [
+      // Apex → www (primary host for Google Search Console)
+      {
+        source: "/:path*",
+        has: [{ type: "host", value: "searchforlasvegashomes.com" }],
+        destination: "https://www.searchforlasvegashomes.com/:path*",
+        permanent: true,
+      },
+    ];
+  },
 
   async headers() {
     return [
